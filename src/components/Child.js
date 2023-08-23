@@ -24,9 +24,9 @@ const Child = ({ todos, setTodos }) => {
               <button
                 onClick={(e) => {
                   changeState(todo.id);
-                  {
-                    e.target.style.visibility = 'hidden'
-                  }
+                //   {
+                //     e.target.style.visibility = 'hidden'
+                //   }
                 }}
               >
                 Complete
