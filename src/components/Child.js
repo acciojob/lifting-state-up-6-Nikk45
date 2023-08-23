@@ -3,13 +3,14 @@ import React from "react";
 const Child = ({ todos, setTodos }) => {
   console.log("list of items", todos);
 
-  const changeState = (id) => {
+  const changeState = (id,e) => {
     todos.map((todo) => {
       if (todo.id === id) {
         todo.status = "completed";
         return setTodos(todos);
       }
     });
+    e.target.style.visibility = 'hidden'
     console.log("after changingitems", todos);
   };
 
@@ -23,7 +24,7 @@ const Child = ({ todos, setTodos }) => {
               {todo.content}{" "}
               <button
                 onClick={(e) => {
-                  changeState(todo.id);
+                  changeState(todo.id ,e);
                 //   {
                 //     e.target.style.visibility = 'hidden'
                 //   }
