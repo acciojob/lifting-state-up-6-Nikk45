@@ -3,14 +3,11 @@ import React from "react";
 const Child = ({ todos, setTodos }) => {
   console.log("list of items", todos);
 
-  const changeState = (id,e) => {
-    todos.map((todo) => {
-      if (todo.id === id) {
-        todo.completed = true;
-        e.target.style.display = 'none'
-        return setTodos(todos);
-      }
-    });
+  const changeState = (id) => {
+    const newTodos = todos.map((todo) => {
+      return todo.id === id ? {...todo,completed:true} : todo
+    })
+    setTodos(newTodos)
     console.log("after changingitems", todos);
   };
 
@@ -22,16 +19,9 @@ const Child = ({ todos, setTodos }) => {
           return (
             <li key={todo.id}>
               {todo.content}{" "}
-              <button
-                onClick={(e) => {
-                  changeState(todo.id ,e);
-                //   {
-                //     e.target.style.visibility = 'hidden'
-                //   }
-                }}
-              >
-                Complete
-              </button>
+              {
+                !todo.completed && <button onClick={() => changeState(todo.id)}>Complete</button>
+              }
             </li>
           );
         })}
