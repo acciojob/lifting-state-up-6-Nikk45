@@ -4,9 +4,9 @@ import Child from "./Child";
 const Parent=()=>{
 
     const [todos,setTodos] = useState(()=>{
-        return [{id:crypto.randomUUID(), content:'Learn React', status: "incomplete"},
-        {id:crypto.randomUUID(), content:'Build a React app', status: "incomplete"},
-        {id:crypto.randomUUID(), content:'Deploy the React app', status: "incomplete"}]
+        return [{id:crypto.randomUUID(), content:'Learn React', completed: false },
+        {id:crypto.randomUUID(), content:'Build a React app', completed: false },
+        {id:crypto.randomUUID(), content:'Deploy the React app', completed: false }]
     })
 
     return(
