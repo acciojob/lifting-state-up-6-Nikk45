@@ -7,7 +7,7 @@ const Child = ({ todos, setTodos }) => {
     todos.map((todo) => {
       if (todo.id === id) {
         todo.status = "completed";
-        e.target.style.visibility = 'hidden'
+        e.target.innerText = 'Completed'
         return setTodos(todos);
       }
     });
